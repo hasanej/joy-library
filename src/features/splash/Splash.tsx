@@ -20,11 +20,13 @@ function Splash() {
       if (isLogin === "true" && isLogin !== null) {
         // Navigation.replace('BookList');
       } else {
-        // Navigation.replace('Login');
+        Navigation.replace('Login');
       }
     }, 3000);
 
-    clearTimeout(splashTimer);
+    return () => {
+      clearTimeout(splashTimer);
+    }
   }
 
   return (
