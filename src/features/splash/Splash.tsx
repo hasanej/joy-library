@@ -18,7 +18,7 @@ function Splash() {
 
     const splashTimer = setTimeout(() => {
       if (isLogin === "true" && isLogin !== null) {
-        // Navigation.replace('BookList');
+        Navigation.replace('BookList');
       } else {
         Navigation.replace('Login');
       }

@@ -5,25 +5,10 @@ export const bookApi = createApi({
   reducerPath: 'bookApi',
   baseQuery: fetchBaseQuery({baseUrl: Config.BOOK_API_URL}),
   endpoints: (builder) => ({
-    getLoveBook: builder.mutation({
-      query: () => ({
-        url: `/subjects/love.json`,
-        method: 'GET'
-      }),
-    }),
-    getActionBook: builder.mutation({
-      query: () => ({
-        url: `/subjects/action.json`,
-        method: 'GET'
-      }),
-    }),
-    getDevelopmentBook: builder.mutation({
-      query: () => ({
-        url: `/subjects/development.json`,
-        method: 'GET'
-      }),
-    }),
-  }),
+    getBooks: builder.query({
+      query: (genre = "love") => `/subjects/${genre}.json`
+    })
+  })
 });
 
-export const {useBookMutation} = bookApi;
+export const {useGetBooksQuery} = bookApi;
