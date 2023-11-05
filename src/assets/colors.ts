@@ -13,6 +13,7 @@ const colors = {
 	colorButtonNextPage: "#1976D2",
 	colorBgBookList: "#FAFAFA",
 	colorBorderDropdown: "#9E9E9E",
+	colorButtonGeneral: "#1976D2",
 }
 
 export default colors;

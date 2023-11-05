@@ -39,6 +39,15 @@ const styles = StyleSheet.create({
   bookEdition: {
     marginTop: 5,
     fontSize: 14
+  },
+  lineHorizontal: {
+    marginVertical: 10,
+    height: 1,
+    backgroundColor: colors.colorBlack
+  },
+  titlePickupDate: {
+    fontSize: 16,
+    fontWeight: 'bold'
   }
 });
 

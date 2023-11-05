@@ -22,6 +22,7 @@ import styles from './styles';
 function BookList() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
 
   const [bookGenre, setBookGenre] = useState(bookGenres[0].value);
   const [pagedBookList, setPagedBookList] = useState([]);
@@ -78,12 +79,15 @@ function BookList() {
   const getUserData = async() => {
     const userName = await AsyncStorage.getItem("userName");
     const userEmail = await AsyncStorage.getItem("userEmail");
+    const userRole = await AsyncStorage.getItem("userRole");
 
     setName(userName);
     setEmail(userEmail);
+    setRole(userRole);
   }
 
-  const bookDetail = (book) => {
+  const bookDetail = (book: object) => {
+    Navigation.navigate('BookDetail', {book, role});
   }
 
   const prevData = () => {
@@ -156,7 +160,9 @@ function BookList() {
           :
             <FlatList
               data={pagedBookList}
-              renderItem={({item}) => <ItemBook item={item} onPress={() => bookDetail(item)} />}
+              renderItem={
+                ({item}) => <ItemBook item={item} onPress={() => bookDetail(item)} role={role} />
+              }
               keyExtractor={item => item.key}
             />
         }

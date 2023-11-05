@@ -8,7 +8,18 @@ const strings = {
   login_illustration: "Login illustration",
   previous: "Previous",
   next: "Next",
-  book_genre: "Book Genre"
+  book_genre: "Book Genre",
+  pickup_schedule: "Pickup Schedule",
+  pickup_schedule_dummy: "Fri, 1 Dec 2023 at 08.00",
+  pickup_date: "Pickup Date",
+  pickup_time: "Pickup Time",
+  select_date: "Select Date",
+  select_time: "Select Time",
+  submit: "Submit",
+  yes: "Yes",
+  cancel: "Cancel",
+  title_submit_pickup_form: "Submit Form",
+  message_submit_pickup_form: "You will pick your book at",
 }
 
 export default strings;

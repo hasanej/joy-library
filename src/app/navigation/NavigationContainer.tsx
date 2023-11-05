@@ -6,6 +6,7 @@ import {navigation} from 'navigation/Navigation';
 import {Splash} from 'features/splash';
 import {Login} from 'features/login';
 import {BookList} from 'features/bookList';
+import {BookDetail} from 'features/bookDetail';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,11 @@ const navigationContainer = () => {
           name="BookList"
           options={{headerShown: false}}
           component={BookList}
+        />
+        <Stack.Screen 
+          name="BookDetail"
+          options={{headerShown: false}}
+          component={BookDetail}
         />
       </Stack.Navigator>
     </NavigationContainer>

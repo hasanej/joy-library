@@ -6,6 +6,7 @@ const images = {
 	next: require('./images/next.png'),
 	previous: require('./images/previous.png'),
 	logout: require('./images/logout.png'),
+	left_arrow: require('./images/left_arrow.png'),
 }
 
 export default images;

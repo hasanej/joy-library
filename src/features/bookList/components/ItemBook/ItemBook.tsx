@@ -2,15 +2,18 @@ import React from 'react';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
 
 import images from 'assets/images';
+import strings from 'assets/strings';
+
 import styles from './styles';
 
 type Props = {
   item: object;
   onPress?: () => void;
+  role: string;
 }
 
 const ItemBook = (props: Props) => {
-  const {item, onPress} = props;
+  const {item, onPress, role} = props;
 
   return (
     <TouchableOpacity
@@ -28,6 +31,21 @@ const ItemBook = (props: Props) => {
           <Text style={styles.bookTitle}>{item.title}</Text>
           <Text style={styles.bookAuthor}>{item.authors[0].name}</Text>
           <Text style={styles.bookEdition}>{`Edition Number ${item.edition_count}`}</Text>
+
+          {
+            role == "librarian" &&
+              <View>
+                <View style={styles.lineHorizontal} />
+
+                <Text style={styles.titlePickupDate}>
+                  {strings.pickup_schedule}
+                </Text>
+
+                <Text style={styles.pickupDate}>
+                  {strings.pickup_schedule_dummy}
+                </Text>
+              </View>
+          }
         </View>
       </View>
     </TouchableOpacity>
