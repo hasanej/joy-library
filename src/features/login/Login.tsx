@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, Image, Text} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import LinearGradient from 'react-native-linear-gradient';
-
-import * as Navigation from 'navigation/Navigation';
 
 import {Button} from 'components/Button';
 import {CustomTextInput} from 'components/CustomTextInput';
 import {PasswordInput} from 'components/PasswordInput';
+
+import * as Navigation from 'navigation/Navigation';
+import {setIsLogin, saveUserData} from 'utils/AsyncStorage';
 
 import images from 'assets/images';
 import colors from 'assets/colors';
@@ -50,7 +50,16 @@ function Login(handleLogin: () => void) {
 
   const onLogin = () => {
     if ((email == librarian.email || email == user.email) && password == "password") {
+      let userData: object;
       setErrorLogin(false);
+
+      setIsLogin("true").then(() => {
+        userData = (email == librarian.email) ? librarian : user;
+
+        saveUserData(userData).then(() => {
+          Navigation.replace('BookList');
+        });
+      });
     } else {
       setErrorLogin(true);
     }
